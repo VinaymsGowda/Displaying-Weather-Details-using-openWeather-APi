@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <title>Weather app</title>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Welcome to Weather Application</h1>
+
+  <div class="containerform">
+  <form id="location-form" action="/show-weather" method="POST">
+    <div class="countries">
+      <label for="country">Country:</label>
+      <select id="country" name="country" class="form-select form-select-lg mb-3" aria-label="Large select example" onchange="updateStates()">
+          <option value="">Select a Country</option>
+          <option value="india">India</option>
+          <option value="pakistan">Pakistan</option>
+          <option value="china">China</option>
+          <option value="usa">USA</option>
+      </select>
+    </div>
+      <div id="state-container">
+          <label for="state">State:</label>
+          <select id="state" name="state" class="form-select form-select-lg mb-3" aria-label="Large select example" disabled onchange="updateCities()">
+          </select>
+      </div>
+
+      <div id="city-container">
+          <label for="city">City:</label>
+          <select id="city" name="city" class="form-select form-select-lg mb-3" aria-label="Large select example" disabled></select>
+      </div>
+      <button class="submit" style="width: 90px; height: 60px;">Get Weather</button>
+  </form>
+</div>
+
+<% if(locals.content){ %>
+  <div class="info">
+      <p>Weather Report </p>
+        <ul>
+            <li>Country : <%= city.country %></li>
+            <li>State : <%= city.state %></li>
+            <li>City : <%= city.name %></li>
+            <li>Weather : <%= content.weather[0].main %></li>
+            <li>Description : <%= content.weather[0].description %></li>
+            <li>Humidity : <%= content.main.humidity%></li>
+            <li>Pressure : <%= content.main.pressure%></li>
+            <li>Temparature : <%= content.main.temp%></li>
+        </ul>
+    </div>
+<% } else { %>
+  <p>Please select all fields</p>
+<% } %>
+  <script src="/JS/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

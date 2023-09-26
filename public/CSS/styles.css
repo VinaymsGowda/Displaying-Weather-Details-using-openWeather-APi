@@ -1,0 +1,30 @@
+.containerform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(213, 168, 7);
+}
+
+#location-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.containerform .submit{
+    align-content: center;
+    background-color: rgb(255, 241, 163);
+    border-radius: 9%;
+    width: 70px;
+    height: 46px;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
