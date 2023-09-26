@@ -33,8 +33,8 @@ app.post("/show-weather",async(req,res)=>{
     let city=req.body.city;
     try {
         const response=await axios.get(baseurl+`/geo/1.0/direct?q=${city},${state},${country}&limit=110&appid=${apiKey}`);
-        let lat=response.data[0].lat;
-        let long=response.data[0].lon;
+        var lat=response.data[0].lat;
+        var long=response.data[0].lon;
         const read=await axios.get(baseurl+`/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`);
         res.render("index.ejs",{content:(read.data),city:(response.data[0])});
     } catch (error) {
