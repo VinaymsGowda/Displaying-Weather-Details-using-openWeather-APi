@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -7,7 +9,7 @@ import bodyParser from "body-parser";
 
 const app=express();
 const port=3000;
-const apiKey="264e528ba50643db8422ef773b713dcb";
+const apiKey=process.env.API_KEY;
 const __dirname=dirname(fileURLToPath(import.meta.url));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"public")));
