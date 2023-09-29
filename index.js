@@ -44,18 +44,6 @@ app.post("/show-weather",async(req,res)=>{
     }
 });
 
-// lat and long based city name
-// app.get("/",async (req,res)=>{
-
-//     try {
-//         const response=await axios.get(baseurl+"/data/2.5/weather?lat=12.831595&lon=77.544352&appid=264e528ba50643db8422ef773b713dcb");
-//         res.render("index.ejs",{content:JSON.stringify(response.data)});
-//         console.log(response.data.name);
-//     } catch (error) {
-//         console.error(error.response.data);
-//     }
-// });
-
 app.listen(port,()=>{
     console.log("Server running on port "+port);
 })
